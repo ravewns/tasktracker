@@ -1,0 +1,75 @@
+@import '../../../assets/styles/variables';
+
+.detail-info {
+  margin-top: 100px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.detail-title {
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.detail-status, .detail-deadline, .detail-priority, .detail-person {
+  font-size: 30px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.detail_des {
+  color: $base-color;
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+
+.detail-edit-icon {
+  width: 20px;
+  fill: $base-color;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.save-button {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.button-save {
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  color: $base-color;
+  font-weight: 600;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.edit-person-input {
+  position: absolute;
+  right: calc(50% - 210px);
+  bottom: 30px;
+
+  input {
+    width: 400px;
+  }
+}
+
+.edit-status-input {
+  position: absolute;
+  right: calc(50% - 210px);
+  bottom: 25px;
+
+  input {
+    width: 400px;
+  }
+}

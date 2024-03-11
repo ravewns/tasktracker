@@ -1,0 +1,147 @@
+<section class="tasks">
+  <div class="container">
+    <div class="tasks-title">Список задач</div>
+    <div class="tasks-create-button">
+      <button class="create-button" (click)="isShow = true">Создать задачу</button>
+    </div>
+    <div class="tasks-list">
+      <div class="task-list-name">
+        <div class="task-list-item-name description-item">
+          Название
+        </div>
+        <div class="task-list-item-status description-item">Статус
+          <div class="sort" (click)="statusSorting()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/>
+            </svg>
+          </div>
+          <div class="filter">
+            <svg (click)="showStatusFilter = showStatusFilter ? showStatusFilter = false : showStatusFilter = true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/>
+            </svg>
+            <div class="status-filter-window" *ngIf="showStatusFilter">
+              <div class="status-filter-window-list">
+                <div class="status-filter-windows-list-item">
+                  <label for="notStarted">Ожидает выполнения
+                    <input
+                      [checked]="statusFilterApplied.includes('Ожидает выполнения')"
+                      #inputOne (change)="statusFilter( 'Ожидает выполнения', inputOne.checked)"  class="filter-input" type="checkbox" id="notStarted">
+                  </label>
+                </div>
+                <div class="status-filter-windows-list-item">
+                  <label for="processed">Выполняется
+                    <input
+                      [checked]="statusFilterApplied.includes('Выполняется')"
+                      #inputTwo (change)="statusFilter( 'Выполняется', inputTwo.checked)" class="filter-input" type="checkbox" id="processed">
+                  </label>
+                </div>
+                <div class="status-filter-windows-list-item">
+                  <label for="complete">Завершена
+                    <input
+                      [checked]="statusFilterApplied.includes('Завершена')"
+                      #inputThree (change)="statusFilter( 'Завершена', inputThree.checked)" class="filter-input" type="checkbox" id="complete">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="task-list-item-deadline description-item">Крайний срок
+          <div class="sort" (click)="dateSorting()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/>
+            </svg>
+          </div>
+          <div class="filter-date-window" *ngIf="showDateFilter">
+            <mat-card class="demo-inline-calendar-card" (click)="dateFilter()">
+              <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+          </div>
+          <div class="filter" (click)="showDateFilter = showDateFilter ? showDateFilter = false : showDateFilter = true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="task-list-item-priority description-item">Приоритет</div>
+        <div class="task-list-item-person description-item">Исполнитель
+          <div class="sort" (click)="personSorting()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/>
+            </svg>
+          </div>
+          <div class="filter" (click)="showPersonsFilter = showPersonsFilter ? showPersonsFilter = false : showPersonsFilter = true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/>
+            </svg>
+          </div>
+          <div class="person-filter-window" *ngIf="showPersonsFilter">
+            <div class="person-filter-window-list">
+              <div class="person-filter-windows-list-item" *ngFor="let persons of personsList">
+                <label for="notStarted">{{persons}}
+                  <input
+                    [checked]="personsFilterApplied.includes(persons)"
+                    (click)=personsFilter(persons) class="filter-input" type="checkbox">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <task-item [task]="tasks" *ngFor="let tasks of tasksList; let i = index"></task-item>
+    </div>
+  </div>
+</section>
+
+<section class="create-task" *ngIf="isShow">
+  <div class="create-task-title">Создание задачи</div>
+  <div class="create-task-close" (click)="isShow = false">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
+    </svg>
+  </div>
+  <div class="create-task-param">
+    <div class="create-task-param-inputs">
+      <div class="create-task-param-input-name">
+        <div class="create-task-param-input-text">Название</div>
+        <input type="text" [(ngModel)]="nameTask">
+      </div>
+      <div class="create-task-param-input-deadline">
+        <div class="create-task-param-input-text">Статус</div>
+        <select name="status" id="status-select" [(ngModel)]="statusTask">
+          <option>Ожидает выполнения</option>
+          <option>Выполняется</option>
+          <option>Завершена</option>
+        </select>
+      </div>
+      <div class="create-task-param-input-date">
+        <div class="create-task-param-input-text">Крайний срок</div>
+        <input type="date" [(ngModel)]="deadlineTask">
+      </div>
+      <div class="create-task-param-input-status">
+        <div class="create-task-param-input-text">Приоритет</div>
+        <select name="status" id="priority-select" [(ngModel)]="priorityTask">
+          <option>Высокий</option>
+          <option>Средний</option>
+          <option>Низкий</option>
+        </select>
+      </div>
+      <div class="create-task-param-input-person">
+        <div class="create-task-param-input-text">Исполнитель</div>
+        <input type="text" [(ngModel)]="personTask" placeholder="Исполнитель">
+      </div>
+    </div>
+    <div class="create-task-param-create-button">
+      <button class="create-task-button" (click)="createTask()">
+        Создать
+      </button>
+    </div>
+  </div>
+</section>

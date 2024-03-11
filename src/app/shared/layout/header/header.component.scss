@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/variables';
+
+.header {
+  padding: 20px 0 20px 0;
+}
+
+.project-name {
+  font-size: 28px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+a {
+  cursor: pointer;
+  color: $base-color;
+  text-decoration: none;
+}

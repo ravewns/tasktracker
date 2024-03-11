@@ -1,0 +1,176 @@
+@import '../../../assets/styles/variables';
+
+.tasks-title {
+  font-size: 23px;
+  font-family: sans-serif;
+  padding-top: 50px;
+  color: $base-color;
+  font-weight: 600;
+}
+
+.create-button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: $base-color;
+  font-weight: 600;
+  background-color: #ffffff;
+  margin-top: 15px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.create-task-button {
+  padding: 13px;
+  width: 150px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  background-color: $base-color;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.create-task-param-create-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-task {
+  width: 800px;
+  height: 700px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: calc(50% - 350px);
+  border-radius: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.create-task-title {
+  text-align: center;
+  font-size: 28px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: $base-color;
+  margin-bottom: 40px;
+}
+
+.create-task-param-inputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  justify-items: center;
+}
+
+.tasks-list {
+  margin-top: 50px;
+}
+
+.task-list-name {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  border-bottom: 1px solid $base-color;
+  padding-bottom: 10px;
+}
+
+.description-item {
+  display: flex;
+  width: 240px;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: $base-color;
+}
+
+.create-task-param-input-text {
+  font-size: 16px;
+  font-family: sans-serif;
+  margin-bottom: 5px;
+  color: $base-color;
+}
+
+.create-task-close {
+  width: 20px;
+  fill: $base-color;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.sort {
+  width: 10px;
+  margin-left: 10px;
+  margin-top: 3px;
+  fill: $base-color;
+  cursor: pointer;
+}
+
+
+.filter {
+  width: 15px;
+  margin-left: 10px;
+  margin-top: 3px;
+  fill: $base-color;
+  cursor: pointer;
+  position: relative;
+}
+
+.status-filter-window {
+  position: absolute;
+  right: -215px;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  width: 230px;
+  height: 120px;
+}
+
+.person-filter-window {
+  position: absolute;
+  right: 230px;
+  top: 255px;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  width: 230px;
+  height: 350px;
+}
+
+.status-filter-windows-list-item {
+  margin-bottom: 20px;
+}
+
+.filter-input {
+  width: 15px;
+  padding: 0;
+  border: none;
+}
+
+.status-filter-windows-close {
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+
+.filter-date-window {
+  width: 200px;
+  position: absolute;
+  top: 260px;
+}
+
+

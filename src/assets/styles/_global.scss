@@ -1,0 +1,22 @@
+body {
+  background-color: #ececec;
+}
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+}
+
+input {
+  padding: 15px;
+  width: 400px;
+  border: 2px solid $base-color;
+  border-radius: 5px;
+}
+
+select {
+  padding: 15px;
+  width: 435px;
+  border: 2px solid $base-color;
+  border-radius: 5px;
+}

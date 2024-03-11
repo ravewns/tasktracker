@@ -1,0 +1,7 @@
+<div class="task-item" [attr.id]="task.id">
+  <a [routerLink]="'/task/' + task.id" class="task-item-name task-item-text">{{task.name}}</a>
+  <div class="task-item-status task-item-text">{{task.status}}</div>
+  <div class="task-item-deadline task-item-text">{{task.deadline}}</div>
+  <div class="task-item-priority task-item-text">{{task.priority}}</div>
+  <div class="task-item-person task-item-text">{{task.person}}</div>
+</div>
